@@ -1,0 +1,107 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.epochconsulting.motoinventory.vehicletracker.fragments.SelectModeFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/logo_ht"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:contentDescription="@string/logotitle"
+            android:src="@drawable/logonew" />
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/fab_margin">
+        <!--android:layout_marginTop="@dimen/select_mode_fragment_arrangement">&ndash;&gt;-->
+
+        <Button
+            android:id="@+id/nav_receivefrom_re"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin"
+            android:layout_marginTop="@dimen/fab_margin"
+
+            android:background="@color/colorPrimaryDark"
+            android:text="@string/receive_from_RE"
+
+            android:textColor="@color/cardview_light_background" />
+
+        <Button
+            android:id="@+id/nav_allocate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:background="@color/colorPrimaryDark"
+            android:text="@string/allocate_vehicle"
+
+            android:textColor="@color/cardview_light_background" />
+
+        <Button
+            android:id="@+id/nav_load"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:background="@color/colorPrimaryDark"
+            android:text="@string/load_vehicle"
+            android:textColor="@color/cardview_light_background" />
+
+
+        <Button
+            android:id="@+id/nav_receivefrom_wh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:background="@color/colorPrimaryDark"
+
+            android:text="@string/receive_from_WH"
+            android:textColor="@color/cardview_light_background" />
+
+
+        <Button
+            android:id="@+id/nav_deliver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:background="@color/colorPrimaryDark"
+            android:text="@string/deliver_vehicle"
+            android:textColor="@color/cardview_light_background" />
+
+        <Button
+            android:id="@+id/nav_getvehicleinfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:background="@color/colorPrimaryDark"
+            android:text="@string/get_vehicle_stats"
+            android:textColor="@color/cardview_light_background" />
+
+
+    </LinearLayout>
+    </LinearLayout>
+
+
+
+</ScrollView>

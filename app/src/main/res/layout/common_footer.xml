@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_alignParentBottom="true"
+    android:background="@color/colorPrimaryDark"
+    >
+
+    <ImageButton
+        android:id="@+id/barcode_footer"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="@dimen/fab_margin"
+        android:background="@color/colorPrimaryDark"
+        android:src="@drawable/scananother"
+        android:contentDescription="@string/scan_next_vehicle"/>
+
+
+
+    <ImageButton
+        android:id="@+id/completecycle_footer"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="220dp"
+        android:layout_marginRight="@dimen/fab_margin"
+        android:src="@drawable/ic_done_green_100dp"
+        android:background="@color/colorPrimaryDark"
+        android:contentDescription="@string/complete_task"/>
+
+
+    </LinearLayout>
+
+

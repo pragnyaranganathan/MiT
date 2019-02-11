@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.epochconsulting.motoinventory.vehicletracker">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="com.android.vending.BILLING" />
+
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logonew"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/iconlogo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".activity.Welcome"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.Home"
+            android:label="@string/title_activity_home"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.ReceiveVehicle"
+            android:label="@string/title_activity_receivefromre"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.AllocateVehicles"
+            android:label="@string/title_activity_allocatevehicle"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.LoadVehicles"
+            android:label="@string/title_activity_loadvehicle"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.Login"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".activity.Welcome">
+            <meta-data
+             android:name="android.support.PARENT_ACTIVITY"
+             android:value=".activity.Welcome"/>
+        </activity>
+
+         <activity
+            android:name=".activity.UnloadVehicle"
+            android:label="@string/title_activity_unloadvehicle"
+            android:screenOrientation="portrait" />
+
+        <service
+            android:name=".implementation.GpsTracker"
+            android:enabled="true" />
+
+        <activity
+            android:name=".activity.Configuration"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.DeliverVehicle"
+            android:label="@string/title_activity_delivervehicle"
+            android:screenOrientation="portrait" />
+        <activity android:name=".activity.GetVehicleStatus"
+            android:screenOrientation="portrait">
+
+        </activity>
+    </application>
+
+</manifest>
