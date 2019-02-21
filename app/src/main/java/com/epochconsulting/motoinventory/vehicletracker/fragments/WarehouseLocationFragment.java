@@ -46,7 +46,7 @@ import static com.epochconsulting.motoinventory.vehicletracker.view.common.Basic
 /**
  * A simple {@link Fragment} subclass.
  * 22nd Feb 2019 - Made changes to this file to take into account the changes made on ERPNext, Moved base warehouse
- * location to another Doctype and hence changes
+ * location to another Doctype and hence changes, made another chang
  */
 public class WarehouseLocationFragment extends BaseFragment {
 
