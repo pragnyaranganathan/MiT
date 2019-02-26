@@ -2,17 +2,13 @@
     <string name="app_name">MotoInventory Tracker</string>
 
     <!--These strings are all related to login and reset password-->
-    <string name="username">Username</string>
     <string name="username_hint">Enter your email address.</string>
-    <string name="password">Password</string>
     <string name="password_hint">Enter your password</string>
     <string name="login">Login</string>
     <string name="forgotpwd">Forgot Password?</string>
     <string name="email_address">Please enter your registered Email address</string>
     <string name="sendpwd">Send Password</string>
     <string name="login_failed">Authentication failed. Please re-enter username and password and retry.</string>
-    <string name="invalid_username">Please enter a valid username</string>
-    <string name="reset_pwd_url">http://192.168.1.4:8000/api/method/frappe.core.doctype.user.user.reset_password/?user=%s</string>
 
     <!--All Title strings-->
 
@@ -34,21 +30,15 @@
     <string name="delivery_status_of_vehicle">Delivered</string>
 
     <!--All button strings -->
-    <string name="continue_str">Continue</string>
     <string name="next">Next</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_settings">Settings</string>
-    <string name="homescreen_mode">Mode</string>
-
     <!--string name="serial_no_doctype">http://192.168.1.4:8000/api/resource/Serial No</string-->
 
     <!-- All the Dialog box button strings -->
-    <string name="action_title">Alert!</string>
     <string name="ok_str">OK</string>
-    <string name="override_string">Override?</string>
     <string name="cancel_str">Cancel</string>
     <string name="send_str">Send</string>
     <string name="yes_str">Yes</string>
@@ -103,8 +93,6 @@
     <string name="do_you_want_to_deliver_anyway_str">This vehicle should not be delivered. Do you want to deliver anyway? Click Yes to deliver and No to cancel.</string>
 
    <!--Move Sheet strings-->
-    <string name="vehiclenotfoundinmovesheet_str">Vehicle not found in the move sheet.Click Override to move this vehicle anyway.</string>
-    <string name="downloadmovesheetmsg">Please click on the Download button to download the latest Move Sheet.</string>
 
     <!--WH strings, location strings-->
 
@@ -120,10 +108,6 @@
 
     <!--delivery note strings, not used-->
 
-    <string name="customerselection">Choose the customer from the drop down list below</string>
-    <string name="delivervehiclehintmessage">In order to make a delivery note for the vehicle, please first select the customer to whom the vehicle is to be delivered from the drop down list below. Click on the barcode icon at the bottom left of this page to continue scanning the next vehicle or the greeen finish icon at the bottom right of the page to finish this task and go back to Home page</string>
-
-
 
     <!--All Allocate Vehicle Strings-->
     <string name="enterBRN">Click on the bar code scanner icon at the bottom left of the screen to scan the vehicle. Enter the Booking Reference Number below to be allocated to this vehicle and then click Allocate Vehicle to proceed. To continue scanning, click on the bar code scanner image below or click on the green tick on the bottom right to go back to home page.</string>
@@ -133,7 +117,6 @@
 
 
     <!--Remover this, unused string-->
-    <string name="truckname">Truck - RE</string>
 
     <!--common strings-->
     <string name="scan_next_vehicle">Scan next vehicle</string>
@@ -153,28 +136,18 @@
     <string name="is_vehicle_delivered_str">Delivered?: </string>
     <string name="get_vehicle_stats">Vehicle Details</string>
     <string name="vehicle_warehouse">Warehouse vehicle currently in:</string>
-    <string name="transferrequired">Transfer Alert for </string>
     <string name="transferstr">This vehicle is not currently in your warehouse. Would you like to transfer this vehicle to your location now? Click Transfer to transfer now and Cancel to dismiss.</string>
     <string name="success_string">Success</string>
-    <string name="vehicle_status">Vehicle Status:</string>
     <string name="delivery_required_at_str">Delivery Required At: </string>
     <string name="delivery_required_on_str">Delivery Required On: </string>
     <string name="not_available_str">NA</string>
-    <string name="vehicle_notdelivered_str">Not Delivered</string>
     <string name="vehicle_allocated_status_str">Allocated but not Delivered</string>
-    <string name="vehicle_allocated_str">Allocated</string>
-    <string name="vehicle_notallocted_str">Not Allocated</string>
     <string name="error_string">Error</string>
-    <string name="cannot_allocate_vehicle">Cannot allocate vehicle</string>
     <string name="transfer_button_str">Transfer</string>
     <string name="submit_transfer_stock_entry">. Click OK to transfer on ERPNext.</string>
     <string name="could_not_rollback_prev_sales_invoice">Could not roll back previous sales invoice associated with this vehicle</string>
     <string name="vehicle_delivered_success_str">Vehicle has been delivered.</string>
-    <string name="page_limit_length">500</string>
     <string name="serverresponse_err">The server did not respond with the right return code. Please check your input.</string>
-    <string name="controllevel_high_str">High</string>
-    <string name="control_level_medium_str">Medium</string>
-    <string name="control_level_low_str">Low</string>
     <string name="vehicle_tobe_allocated_low_control">The control level is set to low on ERPNext server. Vehicle will be allocated to dummy customer, ignoring the given booking reference number.</string>
     <string name="allocate_vehicle_medium_control">The control level is set to medium on ERPNext server. The booking reference number does not exist. The vehicle will be allocated to a dummy customer.</string>
 
