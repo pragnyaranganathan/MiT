@@ -150,6 +150,7 @@
     <string name="serverresponse_err">The server did not respond with the right return code. Please check your input.</string>
     <string name="vehicle_tobe_allocated_low_control">The control level is set to low on ERPNext server. Vehicle will be allocated to dummy customer, ignoring the given booking reference number.</string>
     <string name="allocate_vehicle_medium_control">The control level is set to medium on ERPNext server. The booking reference number does not exist. The vehicle will be allocated to a dummy customer.</string>
+    <string name="basewh_notfound_error">Server Error: It appears that your base location has not been set on ERPNext. Please contact admin! </string>
 
 
 </resources>

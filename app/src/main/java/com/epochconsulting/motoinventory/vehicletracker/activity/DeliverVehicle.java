@@ -68,20 +68,6 @@ public class DeliverVehicle extends BasicActivity {
             firstScan = extras.getBoolean("FirstScan");
         }
 
-        /*
-        vehicelNameFromScanner = null;
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            vehicelNameFromScanner = extras.getString("VehicleScanned");
-        }
-        if (vehicelNameFromScanner != null) {
-            delivervehicle();
-        } else {
-            showErrorDialogBox("Vehicle was not scanned properly. Please scan the vehicle again!");
-        }*/
-        //End: Added on 19th Feb 2018 to implement new interface
-
-
 
         completeCycle.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -8,12 +8,10 @@ import com.google.gson.annotations.SerializedName;
  */
 
 public class UserData {
-    @SerializedName("name")
+    /*@SerializedName("name")
     @Expose
     private String name;
-    @SerializedName("full_name")
-    @Expose
-    private String full_name;
+*/
     @SerializedName("base_warehouse_location")
     @Expose
     private String base_warehouse_location;
@@ -26,19 +24,13 @@ public class UserData {
         this.base_warehouse_location = base_warehouse_location;
     }
 
-    public String getName() {
+    /*public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
+    }*/
 
-    public String getFull_name() {
-        return full_name;
-    }
 
-    public void setFull_name(String full_name) {
-        this.full_name = full_name;
-    }
 }

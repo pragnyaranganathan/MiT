@@ -47,6 +47,8 @@ public class Url {
     public static final String GET_LOGGED_USER = "frappe.auth.get_logged_user";
     public static final String RESENDPASSWORDURL = "frappe.core.doctype.user.user.reset_password";
 
+    public static final String USER_WH_LOCATION = API_PATH_NAME+"getUserDetails";
+
     //all api method calls related to receive vehicle from RE
 
     public static final String VALIDATE_SERIAL_NO = API_PATH_NAME+"validate_serial_no";

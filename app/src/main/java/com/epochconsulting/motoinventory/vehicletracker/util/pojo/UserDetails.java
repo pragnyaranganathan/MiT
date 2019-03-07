@@ -10,15 +10,15 @@ import java.util.List;
  */
 
 public class UserDetails {
-    @SerializedName("data")
+    @SerializedName("message")
     @Expose
-    private List<UserData> userDataList = null;
+    private UserData userData ;
 
-    public List<UserData> getUserData() {
-        return userDataList;
+    public UserData getUserData() {
+        return userData;
     }
 
-    public void setUserData(List<UserData> userData) {
-        this.userDataList = userData;
+    public void setUserData(UserData userData) {
+        this.userData = userData;
     }
 }

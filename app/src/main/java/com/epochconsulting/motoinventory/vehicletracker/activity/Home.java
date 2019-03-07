@@ -13,6 +13,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -31,6 +32,7 @@ import com.epochconsulting.motoinventory.vehicletracker.R;
 import com.epochconsulting.motoinventory.vehicletracker.fragments.SelectModeFragment;
 import com.epochconsulting.motoinventory.vehicletracker.fragments.WarehouseLocationFragment;
 import com.epochconsulting.motoinventory.vehicletracker.implementation.ServiceLocatorImpl;
+import com.epochconsulting.motoinventory.vehicletracker.util.AlertDialogHandler;
 import com.epochconsulting.motoinventory.vehicletracker.util.Constants;
 import com.epochconsulting.motoinventory.vehicletracker.util.Url;
 import com.epochconsulting.motoinventory.vehicletracker.util.Utility;
@@ -279,11 +281,18 @@ public class Home extends BasicActivity
 
 
         //build th url appropriately
-        Map<String,String> param =buildParameters(loggedUser);
+       // Map<String,String> param =buildParameters(loggedUser);
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        Map<String , String > param = new HashMap<>();
+        param.put("loggedUser",loggedUser);
         //build the url
-        String url = Utility.getInstance().buildUrl(Url.API_RESOURCE,null,Url.USER_TABLE);
+        //Made this change in Url to reflect the Base WH Location docytype change in ERPNext
+       // String url = Utility.getInstance().buildUrl(Url.API_RESOURCE,null,Url.USER_TABLE);
+        String url = Utility.getInstance().buildUrl(Url.API_METHOD,param,Url.USER_WH_LOCATION);
+        System.out.println("The built url is " + url);
 
-        if (this.getApplicationContext() != null) {
+
+       /* if (this.getApplicationContext() != null) {
             ServiceLocatorImpl.getInstance().executeGetVolleyRequest(this.getApplicationContext(), url, UserDetails.class, param, getHeaders(), new Response.Listener<UserDetails>() {
 
                 @Override
@@ -295,8 +304,8 @@ public class Home extends BasicActivity
 
 
                         UserDetails loggedUserDetails = SingletonTemp.getInstance().getLoggedInUser();
-                        List<UserData> loggedUserDataList = loggedUserDetails.getUserData();
-                        String loggedInUserBaseWH = loggedUserDataList.get(0).getBase_warehouse_location(); //the current user is always at index 0 in the returned list
+                        UserData loggedUserData = loggedUserDetails.getUserData();
+                        String loggedInUserBaseWH = loggedUserData.getBase_warehouse_location(); //the current user is always at index 0 in the returned list
                         if(loggedInUserBaseWH!=null) {
 
                             setLoggedInUserBaseWHLoc(loggedInUserBaseWH);
@@ -326,7 +335,64 @@ public class Home extends BasicActivity
 
                 }
             });
-        }
+        }*/
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                try {
+                    JSONObject object = new JSONObject(response);
+                    String loggedInUserBaseWH  = object.getString("message");
+                    if(loggedInUserBaseWH!=null){
+                        if(loggedInUserBaseWH.contains(getResources().getString(R.string.error_string)))
+                        {
+                            showErrorDialogBox(loggedInUserBaseWH);
+                        }
+                        else {
+                            setLoggedInUserBaseWHLoc(loggedInUserBaseWH);
+
+                            loadFindWarehousefragment();
+                        }
+
+                    }
+                    else{
+                        showErrorDialogBox(getResources().getString(R.string.basewh_notfound_error));
+
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+
+            }
+        }//end of sucess responseP
+                , new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                Toast.makeText(Home.this, error.toString(), Toast.LENGTH_LONG).show();
+
+
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> headers = new HashMap<>();
+                SharedPreferences prefs = getSharedPreferences(Constants.PREFS_NAME, Context.MODE_PRIVATE);
+                String userId = prefs.getString(Constants.USER_ID, null);
+                String sid = prefs.getString(Constants.SESSION_ID, null);
+                headers.put("user_id", userId);
+                headers.put("sid", sid);
+                return headers;
+            }
+
+        };
+
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(30 * 1000, 0,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        requestQueue.add(stringRequest);
 
     }
     private Map<String,String> buildParameters(String loggedUser) {
@@ -457,4 +523,33 @@ public class Home extends BasicActivity
         }
     }
     //End: added on 19th Feb 2018
+
+    private void showErrorDialogBox(String str) {
+
+        LayoutInflater dialogViewinflator = this.getLayoutInflater();
+        View dialogView = dialogViewinflator.inflate(R.layout.dialog_error_content,null);
+        TextView title = (TextView) dialogView.findViewById(R.id.dialog_error_title) ;
+        title.setText(getResources().getString(R.string.error_string));
+        TextView message = (TextView) dialogView.findViewById(R.id.dialog_error_message) ;
+        message.setText(str);
+        this.showAlertDialog(null, null, false, getResources().getString(R.string.ok_str), null, dialogView, new AlertDialogHandler() {
+            @Override
+            public void onPositiveButtonClicked() {
+
+
+                dialogbox.dismiss();
+
+            }
+
+            @Override
+            public void onNegativeButtonClicked() {
+                //do nothing
+
+
+            }
+
+        });
+
+    }
+
 }

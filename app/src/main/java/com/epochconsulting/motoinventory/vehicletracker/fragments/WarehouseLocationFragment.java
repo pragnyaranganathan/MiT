@@ -134,7 +134,9 @@ public class WarehouseLocationFragment extends BaseFragment {
 
              latitude = gpsData.getLatitude();
              longitude = gpsData.getLongitude();
-
+            //System.out.print to find the latitude and logitude
+            System.out.println("The latitude of my current location is : "+latitude);
+            System.out.println("The longitude of my current location is : "+ longitude);
 
             fetchWareHouseDetails();
 
@@ -209,7 +211,7 @@ public class WarehouseLocationFragment extends BaseFragment {
 
         for(WarehouseAddress warehouse :list){
 
-            if(warehouse.getIsTruck().equalsIgnoreCase("Yes")){
+            if( warehouse.getIsTruck()!=null && warehouse.getIsTruck().equalsIgnoreCase("Yes")){
                 array.add(warehouse.getName());
             }
 
